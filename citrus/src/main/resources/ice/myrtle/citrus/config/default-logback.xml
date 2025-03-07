@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration>
+
+<configuration scan="true">
+
+	<import class="ch.qos.logback.classic.encoder.PatternLayoutEncoder"/>
+	<import class="ch.qos.logback.core.ConsoleAppender"/>
+	<import class="ch.qos.logback.classic.filter.LevelFilter"/>
+	<import class="ch.qos.logback.core.hook.DefaultShutdownHook"/>
+
+	<contextName>Myrtle Citrus</contextName>
+
+	<appender name="TRACE_STDOUT" class="ConsoleAppender" target="System.out">
+		<filter class="LevelFilter">
+			<level>TRACE</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+		<encoder charset="UTF-8" class="PatternLayoutEncoder">
+			<!-- 输出日志记录格式 -->
+			<pattern>%green(%d{yyyy-MM-dd HH:mm:ss.SSSZ}) [%gray(%-5.5level{5})] [%cyan(%-15.15thread{15})] [%boldMagenta(%-30.30logger{30})] [%yellow(%-10.10marker{10})] : %gray(%msg%n)</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="DEBUG_STDOUT" class="ConsoleAppender" target="System.out">
+		<filter class="LevelFilter">
+			<level>DEBUG</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+		<encoder charset="UTF-8" class="PatternLayoutEncoder">
+			<!-- 输出日志记录格式 -->
+			<pattern>%green(%d{yyyy-MM-dd HH:mm:ss.SSSZ}) [%gray(%-5.5level{5})] [%cyan(%-15.15thread{15})] [%boldMagenta(%-30.30logger{30})] [%yellow(%-10.10marker{10})] : %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="INFO_STDOUT" class="ConsoleAppender" target="System.out">
+		<filter class="LevelFilter">
+			<level>INFO</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+		<encoder charset="UTF-8" class="PatternLayoutEncoder">
+			<!-- 输出日志记录格式 -->
+			<pattern>%green(%d{yyyy-MM-dd HH:mm:ss.SSSZ}) [%-5.5level{5}] [%cyan(%-15.15thread{15})] [%boldMagenta(%-30.30logger{30})] [%yellow(%-10.10marker{10})] : %boldWhite(%msg%n)</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="WARN_STDOUT" class="ConsoleAppender" target="System.out">
+		<filter class="LevelFilter">
+			<level>WARN</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+		<encoder charset="UTF-8" class="PatternLayoutEncoder">
+			<!-- 输出日志记录格式 -->
+			<pattern>%boldYellow(%d{yyyy-MM-dd HH:mm:ss.SSSZ}) [%boldYellow(%-5.5level{5})] [%boldYellow(%-15.15thread{15})] [%boldMagenta(%-30.30logger{30})] [%boldYellow(%-10.10marker{10})] : %boldYellow(%msg%n)</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="ERROR_STDOUT" class="ConsoleAppender" target="System.out">
+		<filter class="LevelFilter">
+			<level>ERROR</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+		<encoder charset="UTF-8" class="PatternLayoutEncoder">
+			<!-- 输出日志记录格式 -->
+			<pattern>%boldRed(%d{yyyy-MM-dd HH:mm:ss.SSSZ}) [%boldRed(%-5.5level{5})] [%boldRed(%-15.15thread{15})] [%boldRed(%-30.30logger{30})] [%boldRed(%-10.10marker{10})] : %boldRed(%msg%n)</pattern>
+		</encoder>
+	</appender>
+
+	<logger name="com.zaxxer" level="OFF"/>
+	<logger name="org.sqlite" level="OFF"/>
+
+	<shutdownHook class="DefaultShutdownHook"/>
+
+</configuration>

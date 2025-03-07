@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration>
+
+<configuration scan="true">
+
+	<include resource="ice/myrtle/citrus/config/default-logback.xml"/>
+
+	<root level="ALL">
+		<appender-ref ref="TRACE_STDOUT"/>
+		<appender-ref ref="DEBUG_STDOUT"/>
+		<appender-ref ref="INFO_STDOUT"/>
+		<appender-ref ref="WARN_STDOUT"/>
+		<appender-ref ref="ERROR_STDOUT"/>
+	</root>
+
+</configuration>
